@@ -1,5 +1,8 @@
+// SELETORES
 const inputTexto = document.querySelector('.inputTexto');
-const mensagem = document.querySelector('.mensagem');
+const mensagem = document.getElementById('mensagem');
+const img_espera = document.getElementById('imagem-espera');
+const alerta_msg = document.getElementById('alerta-mensagem');
 
 /* 
         A letra "e" é convertida para "enter"
@@ -30,12 +33,20 @@ function encriptar(stringEncriptada) {
         }
 
     }
-    
+
     return stringEncriptada
 
 }
 
 function btnEncriptar() {
+
+    if (inputTexto.value == 0) {
+        img_espera.style.display = 'block';
+        alerta_msg.style.display = 'block';
+    } else {
+        img_espera.style.display = 'none';
+        alerta_msg.style.display = 'none';
+    }
 
     const textoEncriptado = encriptar(inputTexto.value);
     mensagem.value = textoEncriptado;
@@ -70,13 +81,31 @@ function descriptar(stringDescriptada) {
         }
 
     }
-    
+
     return stringDescriptada
 
 }
 
 function btnDescriptar() {
 
+    if (inputTexto.value == 0) {
+        img_espera.style.display = 'block';
+        alerta_msg.style.display = 'block';
+    } else {
+        img_espera.style.display = 'none';
+        alerta_msg.style.display = 'none';
+    }
+
     const textoDescriptado = descriptar(inputTexto.value);
     mensagem.value = textoDescriptado;
+}
+
+function auto_grow(element) {
+    element.style.height = '5px';
+    element.style.height = (element.scrollHeight) + 'px';
+}
+
+function handleClick() {
+    var input = document.getElementById('mensagem').value;
+    navigator.clipboard.writeText(input);
 }
