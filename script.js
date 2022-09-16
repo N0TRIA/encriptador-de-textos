@@ -3,6 +3,7 @@ const inputTexto = document.querySelector('.inputTexto');
 const mensagem = document.getElementById('mensagem');
 const img_espera = document.getElementById('imagem-espera');
 const alerta_msg = document.getElementById('alerta-mensagem');
+const btn_clipboard = document.getElementById('btn-clipboard');
 
 /* 
         A letra "e" é convertida para "enter"
@@ -40,12 +41,22 @@ function encriptar(stringEncriptada) {
 
 function btnEncriptar() {
 
-    if (inputTexto.value == 0) {
+    if (inputTexto.value == 0 && screen.width > 768) {
         img_espera.style.display = 'block';
         alerta_msg.style.display = 'block';
+
     } else {
         img_espera.style.display = 'none';
         alerta_msg.style.display = 'none';
+    }
+
+    if (inputTexto.value == 0 && screen.width < 768) {
+        alerta_msg.style.display = 'block';
+        btn_clipboard.style.display = 'none';
+    } else {
+        img_espera.style.display = 'none';
+        alerta_msg.style.display = 'none';
+        btn_clipboard.style.display = 'block';
     }
 
     const textoEncriptado = encriptar(inputTexto.value);
@@ -88,7 +99,7 @@ function descriptar(stringDescriptada) {
 
 function btnDescriptar() {
 
-    if (inputTexto.value == 0) {
+    if (inputTexto.value == 0 && screen.width > 768) {
         img_espera.style.display = 'block';
         alerta_msg.style.display = 'block';
     } else {
@@ -96,14 +107,29 @@ function btnDescriptar() {
         alerta_msg.style.display = 'none';
     }
 
+    if (inputTexto.value == 0 && screen.width < 768) {
+        alerta_msg.style.display = 'block';
+        btn_clipboard.style.display = 'none';
+    } else {
+        img_espera.style.display = 'none';
+        alerta_msg.style.display = 'none';
+        btn_clipboard.style.display = 'block';
+    }
+
     const textoDescriptado = descriptar(inputTexto.value);
     mensagem.value = textoDescriptado;
 }
 
-function auto_grow(element) {
-    element.style.height = '5px';
-    element.style.height = (element.scrollHeight) + 'px';
-}
+/* function auto_grow(element) {
+    if (screen.width < 768) {
+        element.style.height = '5px';
+        element.style.height = (element.scrollHeight) + 'px';
+    } else {
+        element.style.height = '5px';
+        element.style.height = (element.scrollHeight) + 'px';
+    }
+
+} */
 
 function handleClick() {
     var input = document.getElementById('mensagem').value;
