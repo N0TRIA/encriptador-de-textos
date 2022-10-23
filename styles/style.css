@@ -20,40 +20,37 @@ main {
 }
 
 .inputTexto {
-    /* Digite seu texto */
-
+    text-transform: lowercase;
     position: absolute;
-    width: 47.2%;
-    height: 48px;
-    left: 16.6%;
+    width: 600px;
+    height: 400px;
+    left: 15%;
     top: 168px;
-
-    font-family: 'Inter', sans-serif;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 600;
     font-size: 32px;
-    color: #0A3871;
     line-height: 150%;
-    /* identical to box height, or 48px */
-
-    /* Dark blue/dark-blue-300 */
-
-    background-color: #E5E5E5;
-    outline: none;
-    border: 1px solid transparent;
-
+    justify-content: baseline;
     resize: none;
-    overflow: hidden;
-    min-height: 50px;
-    max-height: 640px;
+    color: #0A3871;
+    background: transparent;
+    border: none;
+}
 
+.inputTexto:focus {
+    border: none;
+    outline: none;
+}
+
+.inputTexto::-webkit-scrollbar {
+    display: none;
 }
 
 #descriçao {
     left: 16.6%;
     top: 860px;
     position: absolute;
-    width: 15.83%;
+    width: auto;
     height: 18px;
     font-family: 'Inter';
     font-style: normal;
@@ -79,7 +76,7 @@ main {
     ;
     height: 67px;
     left: 16.6%;
-    top: 885px;
+    top: 688px;
 }
 
 .encriptar {
@@ -102,6 +99,11 @@ main {
     justify-content: space-around;
 }
 
+.encriptar:active {
+    background: #0c4891;
+    ;
+}
+
 .descriptar {
     box-sizing: border-box;
     display: flex;
@@ -119,11 +121,15 @@ main {
     flex-grow: 0;
 }
 
+.descriptar:active {
+    background: #c1c7cf;
+}
+
 .texto-encriptar {
 
     font-family: 'Inter';
     font-style: normal;
-    font-weight: 400;
+    font-weight: 600;
     font-size: 20px;
     line-height: 19px;
     text-align: center;
@@ -136,7 +142,7 @@ main {
 .texto-descriptar {
     font-family: 'Inter';
     font-style: normal;
-    font-weight: 400;
+    font-weight: 600;
     font-size: 20px;
     line-height: 19px;
     text-align: center;
@@ -151,16 +157,22 @@ main {
     resize: none;
     margin: 8%;
     border: none;
+    color: #495057;
+}
+
+#mensagem::-webkit-scrollbar {
+    display: none;
 }
 
 #mensagem:focus {
-    border-color: #FFFFFF;
+    outline: none;
+    border: none;
 }
 
 #resultado {
     position: absolute;
     width: 27.7%;
-    height: 944px;
+    height: 728px;
     left: 69.4%;
     top: 40px;
     background: #FFFFFF;
@@ -180,10 +192,10 @@ main {
 #alerta-mensagem {
     position: absolute;
 
-    width: 50%;
+    width: 65%;
     height: 58px;
     top: 60%;
-    left: 25%;
+    left: 20%;
 }
 
 div#alerta-mensagem>h1 {
@@ -197,14 +209,9 @@ div#alerta-mensagem>h1 {
 
     text-align: center;
 
-    /* Gray/gray-500 */
-
-    background-image: url(/imagens/boneco.png);
-    background-repeat: no-repeat;
-    background-position: center;
 }
 
-section > h1 {
+section>h1 {
 
     color: #343A40;
 }
@@ -215,7 +222,7 @@ div#alerta-mensagem>h2 {
 
     font-family: 'Inter';
     font-style: normal;
-    font-weight: 400;
+    font-weight: 600;
     font-size: 16px;
     line-height: 150%;
     /* or 24px */
@@ -243,11 +250,171 @@ div#alerta-mensagem>h2 {
     height: 7%;
     top: 90%;
     margin: auto 8%;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 19px;
 }
 
-footer {
-    text-align: center;
-    background: #0A3871;
-    ;
-    padding: 20px 0;
+#btn-clipboard:active {
+    background: #dddddd;
+}
+
+@media screen and (min-width: 375px) and (max-width: 768px) {
+
+    body {
+        background: #F3F5FC;
+    }
+
+    #logo-cabeçalho {
+        margin: 40px 0 0 40px;
+    }
+
+    .inputTexto {
+        width: 688px;
+        height: 580px;
+        left: 40px;
+        top: 240px;
+        background: #F3F5FC;
+    }
+
+    #descriçao {
+        width: 327px;
+        height: 18px;
+        left: 40px;
+        top: 836px;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 0px;
+        gap: 8px;
+    }
+
+    .botoes {
+        width: 688px;
+        height: 67px;
+        left: 40px;
+        top: 870px;
+    }
+
+    #resultado {
+        width: 688px;
+        height: 343px;
+        left: 40px;
+        top: 1001px;
+        border: transparent;
+    }
+
+    #mensagem {
+        width: 624px;
+        height: 180px;
+        margin: 4% 4% 0 4%;
+    }
+
+    #imagem-espera {
+        display: none;
+    }
+
+    #alerta-mensagem {
+        position: absolute;
+        width: 0;
+        height: 0;
+        top: 145px;
+        left: 25px;
+    }
+
+    div#alerta-mensagem>h1 {
+        width: 624px;
+        height: 29px;
+
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 120%;
+
+        text-align: center;
+    }
+
+    div#alerta-mensagem>h2 {
+        width: 624px;
+        height: 24px;
+
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 150%;
+
+        text-align: center;
+    }
+
+    #btn-clipboard {
+        width: 576px;
+        height: 67px;
+        top: 70%;
+
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 19px;
+        text-align: center;
+        display: none;
+    }
+}
+
+@media screen and (max-width: 375px) {
+
+    body {
+        background: #FFFFFF ;
+    }
+
+    #logo-cabeçalho {
+        margin: 24px 327px 24px 16px;
+    }
+
+    .inputTexto {
+        width: 343px;
+        left: 16px;
+        top: 152px;
+    }
+
+    #descriçao {
+        width: 252px;
+        height: 18px;
+        left: 16px;
+        top: 451px;
+    }
+
+    .botoes {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0px;
+        gap: 24px;
+
+        position: absolute;
+        width: 343px;
+        height: 158px;
+        left: 16px;
+        top: 485px;
+    }
+
+    #resultado {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 32px;
+        gap: 32px;
+
+        position: absolute;
+        width: 327px;
+        height: 186px;
+        left: 24px;
+        top: 707px;
+
+    }
 }
